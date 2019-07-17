@@ -1,0 +1,91 @@
+{{template config_path="design/email/header_template"}}
+
+<table class="message-details">
+    <tr> <td>{{trans "Hi, Here is the new Wholesale Customer Application"}}</td> </tr>
+    <tr>
+        <td><b>{{trans "Business Name"}}</b></td>
+        <td>{{var name}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Email"}}</b></td>
+        <td>{{var email}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Contact Name"}}</b></td>
+        <td>{{var cname}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Address"}}</b></td>
+        <td>{{var address}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Business Name"}}</b></td>
+        <td>{{var name}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Email"}}</b></td>
+        <td>{{var email}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Contact Name"}}</b></td>
+        <td>{{var cname}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Address"}}</b></td>
+        <td>{{var address}}</td>
+        <td>{{var address2}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "City"}}</b></td>
+        <td>{{var city}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "State"}}</b></td>
+        <td>{{var state}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Postal/Zip Code"}}</b></td>
+        <td>{{var zipcode}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Country"}}</b></td>
+        <td>{{var country}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Area Code"}}</b></td>
+        <td>{{var areacode}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Phone Number"}}</b></td>
+        <td>{{var phonenumber}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Website"}}</b></td>
+        <td>{{var website}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Re-Seller"}}</b></td>
+        <td>{{var reseller}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Description"}}</b></td>
+        <td>{{var description}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Additional"}}</b></td>
+        <td>{{var additional}}</td>
+    </tr>
+    <tr>
+        <td><b>{{trans "Image"}}</b></td>
+        <td><a class="logo" href="{{var file}}" target="_blank">{{trans "Click here to see Image"}}
+        </a></td>
+    </tr>
+     </tr>
+ </table>
+
+    <div>
+        <div class="footer">
+            <p class="closing">{{trans "Thank you, %store_name" store_name=$store.getFrontendName()}}!</p>
+        </div>
+    </div>
+{{template config_path="design/email/footer_template"}}

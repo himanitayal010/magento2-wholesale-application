@@ -1,0 +1,122 @@
+<div class="cms-page-content container wholesaleapp">
+    <h1><?php  echo __('Wholesale and Dealer Inquiries Form') ?></h1>
+<table align="center">
+    <form action="<?php echo $block->getBaseUrl().'wholesaleapplication/index/post'; ?>" id="applicationform" enctype='multipart/form-data' data-hasrequired="<?php /* @escapeNotVerified */ echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}' method="post">
+      
+        <tr class="required"">
+            <td><label><?php  echo __('Business Name*') ?> </label></td>
+            <td> <input type="text" name="name" id="txtName" data-validate='{"required":true}'></td>
+        </tr>
+         <tr class="required">
+             <td><label> <?php  echo __('Contact Name*') ?> </label></td>
+             <td><input type="text" name="cname" id="txtcName" data-validate='{"required":true}'></td>
+        </tr>
+         <tr class="required">
+             <td> <label> <?php  echo __('E-mail*') ?> </label></td>
+             <td><input type="email" name="email" id="txtEmail" data-validate='{"required":true}'></td>
+        </tr>
+         <tr class="required">
+             <td> <label> <?php  echo __('Address') ?> </label></td>
+             <td><input type="text" name="address" id="txtadd" data-validate='{"required":true}' placeholder="Street Address">
+        </tr>
+        <tr>
+             <td></td>
+             <td><input type="text" name="address2" id="txtadd2" placeholder="Street Address Line 2">
+        </tr>
+        <tr class="required">
+             <td></td>
+             <td><input type="text" name="city" id="txtcity" data-validate='{"required":true}' placeholder="City">
+             <td><input type="text" name="state" id="txtstate" data-validate='{"required":true}' placeholder="State">
+            </td>
+        </tr>
+         <tr>
+             <td></td>
+             <td><input type="text" name="zipcode" id="txtzipcode" placeholder="Postal Zip/Code">
+             <td><?php $countryBlock = $block->getLayout()->createBlock('Magento\Directory\Block\Data');?>
+                <?= $countryBlock->getCountryHtmlSelect($defValue = null, $name = 'country', $id = 'country', $title = 'Country');?>
+            </td>
+
+        </tr>
+        <tr>
+             <td></td>
+             <td><input type="text" name="areacode" id="textarea" placeholder="Area Code">
+             <td><input type="text" name="phonenumber" id="txtphone" data-validate='{"required":true,"number":true}' placeholder="Phone Number">
+        </tr>
+         <tr>
+             <td> <label> <?php  echo __('Website') ?> </label></td>
+             <td><input type="text" name="website" id="txtwebsite"></td>
+        </tr>
+        <tr class="required">
+             <td> <label> <?php  echo __('Reseller Permit*') ?> </label></td>
+             <td><input type="text"  name="reseller" id="txtreseller" data-validate='{"required":true}'></td>
+        </tr>
+         <tr>
+             <td> <label> <?php  echo __('Description of Business') ?> </label></td>
+             <td><textarea  name="description"  id="txtdescription"></textarea></td>
+        </tr>
+         <tr>
+             <td> <label> <?php  echo __('Additional Questions and Comments') ?> </label></td>
+             <td><textarea name="additional" id="txtaddques"'></textarea></td>
+        </tr>
+        <tr>
+             <td> <label> <?php  echo __('Click To Edit') ?> </label></td>
+             <td><input type="file" name="image" id="txtimage"></td>
+        </tr>
+        <tr>
+         <td><button class="wholesalebutton fill-bg" type="submit" name="submit">
+              <?php  echo __('Submit') ?>
+            </button></td>
+        </tr>
+
+    </form>
+</table>
+</div>
+<style type="text/css">
+    .wholesaleapp .error{
+        color: #ff0000;
+    }
+</style>
+<script type="text/javascript">
+    require(['jquery'], function($){
+        $(document).ready(function(){
+            $('#applicationform').submit(function(e){
+                var name = $('#txtName').val();
+                var cname = $('#txtcName').val();
+                var email = $('#txtEmail').val();
+                var address = $('#txtadd').val();
+                var city = $('#txtcity').val();
+                var state = $('#txtstate').val();
+                var reseller = $('#txtreseller').val();
+                $(".error").remove();
+                if (name.length < 1) {
+                  $('#txtName').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (cname.length < 1) {
+                  $('#txtcName').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (email.length < 1) {
+                  $('#txtEmail').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (address.length < 1) {
+                  $('#txtadd').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (city.length < 1) {
+                  $('#txtcity').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (state.length < 1) {
+                  $('#txtstate').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+                if (reseller.length < 1) {
+                  $('#txtreseller').after('<span class="error">This field is required</span>');
+                  return false;
+                }
+            });
+        });
+    });
+</script>
